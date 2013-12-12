@@ -5,6 +5,7 @@ import java.util.*;
 
 import kr.mint.kdiary.db.*;
 import android.app.*;
+import android.content.*;
 import android.os.*;
 import android.view.*;
 import android.view.View.OnClickListener;
@@ -32,6 +33,7 @@ public class KDiaryEditActivity extends Activity
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		date = dateFormat.toString();
 		
+		
 		addBtn.setOnClickListener(new OnClickListener()
 		{
 			
@@ -39,6 +41,9 @@ public class KDiaryEditActivity extends Activity
 			public void onClick(View v)
 			{
 				controller.insertMemo(title.getText().toString(), content.getText().toString(),date);
+				Intent intent = new Intent(KDiaryEditActivity.this, KDiaryActivity.class);
+				startActivity(intent);
+				finish();
 			}
 		});
 		

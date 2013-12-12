@@ -48,6 +48,7 @@ public class MemoDBController
 	
 	public void deleteMemo(int id)
 	{
+		
 		String[] whereArgs = { String.valueOf(id) };
 		db = dbHelper.getWritableDatabase();
 		db.delete("memo", "_id=?", whereArgs);
@@ -73,7 +74,6 @@ public class MemoDBController
 			results.add(dataBean);
 			cursor.moveToNext();
 		}
-		
 		cursor.close();
 		dbHelper.close();
 		return results;
